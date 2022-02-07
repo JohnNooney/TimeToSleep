@@ -14,7 +14,7 @@ namespace TimeToSleep
 
             if(input != null && Double.TryParse(input, out time))
             {
-                double hours = time * 3600000; //ms to hours
+                double hours = time * 3600000; //hours to ms
 
                 Console.WriteLine("Understood. Going to sleep in " + input + " hours.");
 
