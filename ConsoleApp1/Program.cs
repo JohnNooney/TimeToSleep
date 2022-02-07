@@ -8,7 +8,7 @@ namespace TimeToSleep
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter the amount of time before going to sleep. \nie: <1.5> for 1 and half hours");
+            Console.WriteLine("Enter the amount of time before going to sleep. \nie: <1.5> for 1 and a half hours");
             string input = Console.ReadLine();
             double time;
 
@@ -16,7 +16,7 @@ namespace TimeToSleep
             {
                 double hours = time * 3600000; //ms to hours
 
-                Console.WriteLine("Understood, going to sleep in " + input + " hours.");
+                Console.WriteLine("Understood. Going to sleep in " + input + " hours.");
 
                 Timer aTimer = new Timer();
                 aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
@@ -33,7 +33,7 @@ namespace TimeToSleep
         // Specify what you want to happen when the Elapsed event is raised.
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("Going to sleep now... good night.");
+            Console.WriteLine("Going to sleep now... Good night.");
             SetSuspendState(false, true, true);
         }
 
