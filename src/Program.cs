@@ -11,22 +11,27 @@ namespace TimeToSleep
             Console.WriteLine("Enter the amount of time before going to sleep. \nie: <1.5> for 1 and a half hours");
             string input = Console.ReadLine();
             double time;
+            bool flag = false;
 
-            if(input != null && Double.TryParse(input, out time))
+            while (!flag)
             {
-                double hours = time * 3600000; //hours to ms
+                if (input != null && Double.TryParse(input, out time))
+                {
+                    flag = true;
+                    double hours = time * 3600000; //hours to ms
 
-                Console.WriteLine("Understood. Going to sleep in " + input + " hours.");
+                    Console.WriteLine("Understood. Going to sleep in " + input + " hours.");
 
-                Timer aTimer = new Timer();
-                aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-                aTimer.Interval = hours; 
-                aTimer.Enabled = true;
+                    Timer aTimer = new Timer();
+                    aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+                    aTimer.Interval = hours;
+                    aTimer.Enabled = true;
 
-            }
-            else
-            {
-                Console.WriteLine("I don't understand. Please try again.");
+                }
+                else
+                {
+                    Console.WriteLine("I don't understand. Please try again.");
+                }
             }
         }
 
